@@ -1,5 +1,5 @@
 // Ganti password ini sebelum digunakan. Ini hanya proteksi sederhana untuk demo lokal.
-const ADMIN_PASSWORD = "Artotelbatam";
+const ADMIN_PASSWORD = "@4rt0telb4tm";
 const STORAGE_KEY = "artotel_best_employee_votes_v1";
 const candidates = [
   {id:"candidate1", name:"Kandidat 01", department:"Muhammad Ridho & Front Office", photo:"assets/Ridho-1.jpeg"},
