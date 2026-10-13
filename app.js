@@ -70,7 +70,7 @@ submit.addEventListener("click",()=>{
     timestamp:new Date().toISOString()});
   localStorage.setItem(STORAGE_KEY,JSON.stringify(votes));
   selectedId=null;submit.disabled=true;notice.textContent="Terima kasih! Suara Anda sudah tercatat di browser ini.";render();
-    nama_lengkap.value = ""
-    selectedId = ""
+    // nama_lengkap.value = ""
+    // selectedId = ""
 });
 render();
