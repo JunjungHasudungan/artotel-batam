@@ -5,8 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Best Artist Q3 | ARTOTEL Batam</title>
   <link rel="stylesheet" href="style.css">
+  <script src="stateCandidate.js"></script>
+   <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+   <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
 </head>
-<body>
+<body x-data="stateCandidate">
   <header class="topbar">
     <div class="brand">
       <div class="brand-mark">A</div>
@@ -19,6 +22,34 @@
       <span class="pill">EMPLOYEE RECOGNITION</span>
       <h1>Who deserves to be<br><em>the Best Artist Quarter3?</em></h1>
       <p>Apresiasi rekan kerja yang memberikan kontribusi terbaik. Pilih satu kandidat favorit Anda.</p>
+    </section>
+    <section>
+      <div class="p-2">
+          <form class="max-w-sm mx-auto p-5 rounded-lg">
+            <!-- inputan nama -->
+             <div>
+            <label for="first_name" class="block mb-2.5 text-sm font-medium text-heading">Nama lengkap</label>
+            <input type="text" id="name" class="bg-neutral-secondary-medium rounded-lg border border-default-medium text-heading text-sm rounded-base focus:ring-brand focus:border-brand block w-full px-3 py-2.5 shadow-xs placeholder:text-body" 
+            placeholder="type your name" required />
+        </div>
+          <div>
+            <label for="countries_disabled" class="block mb-3 text-left text-lg font-semibold text-gray-900">
+                Pilih Department Anda
+            </label>
+
+            <select id="select_departement"
+              class="block w-full bg-white border border-gray-300
+                text-gray-900 text-sm rounded-lg
+                focus:ring-blue-500 focus:border-blue-500
+                px-3 py-2.5 shadow-sm"
+                >
+                <option value="" disabled selected>
+                    Pilih Department
+                </option>
+            </select>
+          </div>
+          </form>
+      </div>
     </section>
     <section class="candidate-grid" id="candidateGrid" aria-label="Daftar kandidat"></section>
     <div class="vote-notice" id="voteNotice" role="status">Pilih satu kandidat, lalu konfirmasi pilihan Anda.</div>

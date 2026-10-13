@@ -22,8 +22,26 @@ function renderDashboard(){
   $("results").innerHTML=counts.map(c=>`<article class="result-row"><img src="${c.photo}" alt=""><div><div class="result-name">${c.name}</div><div class="small-note">${c.department} · ${votes.length?Math.round(c.count/votes.length*100):0}% suara</div><div class="bar"><div class="bar-fill" style="width:${votes.length?c.count/votes.length*100:0}%"></div></div></div><strong class="result-count">${c.count}</strong></article>`).join("");
 }
 $("exportButton").addEventListener("click",()=>{
-  const votes=getVotes();const rows=[["No","Kandidat","Waktu voting"]];
-  votes.forEach((v,i)=>{const c=candidates.find(x=>x.id===v.candidateId);rows.push([i+1,c?c.name:v.candidateId,v.timestamp]);});
+  const votes=getVotes();
+  const rows=[
+    [
+      "No",
+      "Kandidat",
+      "Peserta Voting", 
+      "Departemen",
+      "Waktu voting", 
+    ]
+  ];
+  votes.forEach((item,index)=>{
+    const c =candidates.find(obj=>obj.id===item.candidateId);
+    rows.push([
+      index + 1, // index
+      item.candidateId, // candidate nama
+      item.fullName, // nama peserta voting
+      item.departementName,// nama departement
+      item.timestamp // timestamp
+    ]);
+  });
   const csv=rows.map(r=>r.map(x=>'"'+String(x).replace(/"/g,'""')+'"').join(",")).join("\r\n");
   const blob=new Blob(["\ufeff"+csv],{type:"text/csv;charset=utf-8;"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="hasil-voting-artotel-batam.csv";a.click();URL.revokeObjectURL(url);
 });
